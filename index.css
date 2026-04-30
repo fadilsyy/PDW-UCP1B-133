@@ -1,0 +1,155 @@
+/* ============================================================
+   index.css — Styles specific to index.html (Beranda)
+   Tech Community | Okhema / Amphoreus Theme
+   ============================================================ */
+
+/* === HERO SECTION === */
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 5rem 1rem 4rem;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.pillar-left,
+.pillar-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+        180deg,
+        transparent,
+        var(--gold-dark) 30%,
+        var(--gold) 50%,
+        var(--gold-dark) 70%,
+        transparent
+    );
+    opacity: 0.3;
+}
+
+.pillar-left  { left: 3rem; }
+.pillar-right { right: 3rem; }
+
+.hero-ornament {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 1rem;
+}
+
+.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--gold-light);
+    text-shadow:
+        0 0 40px rgba(201,168,76,0.5),
+        0 2px 4px rgba(0,0,0,0.8);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.hero-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.5rem auto;
+    max-width: 400px;
+}
+
+.hero-divider .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+}
+
+.hero-divider .gem {
+    color: var(--gold);
+    font-size: 0.7rem;
+}
+
+.hero-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.1rem;
+    color: rgba(240,232,216,0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.8;
+    font-style: italic;
+}
+
+/* === MEMBER TABLE === */
+.table-okhema {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    font-family: 'EB Garamond', serif;
+}
+
+.table-okhema thead th {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.08);
+    border-top: 1px solid rgba(201,168,76,0.3);
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    padding: 0.9rem 1rem;
+}
+
+.table-okhema tbody tr {
+    transition: background 0.2s;
+}
+
+.table-okhema tbody tr:hover {
+    background: rgba(201,168,76,0.05);
+}
+
+.table-okhema tbody td {
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* === INTEREST BADGES === */
+.badge-minat {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.7rem;
+    border-radius: 0;
+    border: 1px solid;
+}
+
+.badge-web    { color: #7BC4A0; border-color: #7BC4A0; background: rgba(123,196,160,0.1); }
+.badge-mobile { color: #C47BA0; border-color: #C47BA0; background: rgba(196,123,160,0.1); }
+.badge-data   { color: #7BA0C4; border-color: #7BA0C4; background: rgba(123,160,196,0.1); }
+.badge-ai     { color: #C4A07B; border-color: #C4A07B; background: rgba(196,160,123,0.1); }
+
+/* === NEW ENTRIES (from form) === */
+#newEntries td {
+    font-style: italic;
+}
+
+#newEntries td:first-child::before {
+    content: '✦ ';
+    color: var(--gold);
+    font-size: 0.7em;
+}

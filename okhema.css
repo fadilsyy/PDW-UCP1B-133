@@ -1,0 +1,323 @@
+/* ============================================================
+   okhema-base.css — Shared styles for all pages
+   Tech Community | Okhema / Amphoreus Theme
+   ============================================================ */
+
+/* === VARIABLES === */
+:root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --gold-dark: #8B6914;
+    --navy: #0D1B2A;
+    --navy-mid: #152236;
+    --navy-light: #1E3248;
+    --accent: #7B9FC4;
+    --text-light: #F0E8D8;
+}
+
+/* === RESET & BASE === */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--navy);
+    color: var(--text-light);
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* === BACKGROUND PATTERN === */
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 20% 20%, rgba(201,168,76,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(123,159,196,0.08) 0%, transparent 50%),
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 60px,
+            rgba(201,168,76,0.03) 60px,
+            rgba(201,168,76,0.03) 61px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 60px,
+            rgba(201,168,76,0.03) 60px,
+            rgba(201,168,76,0.03) 61px
+        );
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* === NAVBAR === */
+.navbar-okhema {
+    background: linear-gradient(180deg, rgba(13,27,42,0.98) 0%, rgba(21,34,54,0.95) 100%);
+    border-bottom: 1px solid var(--gold-dark);
+    padding: 0.75rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.5), 0 1px 0 rgba(201,168,76,0.2);
+}
+
+.navbar-brand-text {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    text-shadow: 0 0 20px rgba(201,168,76,0.4);
+    letter-spacing: 0.05em;
+}
+
+.nav-link-okhema {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 0.5rem 1.2rem;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link-okhema::before,
+.nav-link-okhema::after {
+    content: '◆';
+    font-size: 0.4rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.3s, color 0.3s;
+    color: var(--gold-light);
+}
+
+.nav-link-okhema::before { left: 0.3rem; }
+.nav-link-okhema::after  { right: 0.3rem; }
+
+.nav-link-okhema:hover,
+.nav-link-okhema.active {
+    color: var(--gold-light);
+    border-color: rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.07);
+    text-shadow: 0 0 12px rgba(201,168,76,0.5);
+}
+
+.nav-link-okhema:hover::before,
+.nav-link-okhema:hover::after,
+.nav-link-okhema.active::before,
+.nav-link-okhema.active::after {
+    opacity: 1;
+}
+
+/* === PAGE HEADER (shared) === */
+.page-header {
+    text-align: center;
+    padding: 3.5rem 1rem 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.page-label {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+}
+
+.page-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--gold-light);
+    text-shadow: 0 0 30px rgba(201,168,76,0.4);
+    margin-bottom: 0.5rem;
+}
+
+/* === ORNATE DIVIDER === */
+.divider-ornate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 1.25rem auto;
+    max-width: 300px;
+}
+
+.divider-ornate .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+}
+
+.divider-ornate .gem {
+    color: var(--gold);
+    font-size: 0.65rem;
+}
+
+/* === SECTION / MEDIA CARD === */
+.section-card,
+.media-card {
+    background: linear-gradient(135deg, rgba(21,34,54,0.9) 0%, rgba(30,50,72,0.8) 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 2px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 2rem;
+}
+
+.section-card::before,
+.media-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.03) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* top-left corner */
+.section-card::after,
+.media-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border-top: 2px solid var(--gold-dark);
+    border-left: 2px solid var(--gold-dark);
+    pointer-events: none;
+}
+
+/* bottom-right corner */
+.corner-br {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    border-bottom: 2px solid var(--gold-dark);
+    border-right: 2px solid var(--gold-dark);
+}
+
+/* === CARD / SECTION TITLE === */
+.section-title,
+.card-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.section-title::before,
+.card-title::before {
+    content: '';
+    flex: 0 0 2rem;
+    height: 1px;
+    background: rgba(201,168,76,0.5);
+}
+
+.section-title::after,
+.card-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(201,168,76,0.5), transparent);
+}
+
+/* === BUTTONS === */
+.btn-okhema {
+    font-family: 'Cinzel', serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, rgba(139,105,20,0.6), rgba(201,168,76,0.4));
+    border: 1px solid var(--gold-dark);
+    color: var(--gold-light);
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-okhema:hover {
+    background: linear-gradient(135deg, rgba(201,168,76,0.5), rgba(240,208,128,0.3));
+    border-color: var(--gold);
+    color: var(--gold-light);
+    box-shadow: 0 0 20px rgba(201,168,76,0.2);
+}
+
+.btn-ghost {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.2);
+    color: rgba(201,168,76,0.6);
+    padding: 0.65rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-ghost:hover {
+    border-color: rgba(201,168,76,0.5);
+    color: var(--gold);
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 1px solid rgba(201,168,76,0.15);
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(201,168,76,0.4);
+    position: relative;
+    z-index: 1;
+}
+
+/* === ANIMATION === */
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+    animation: fadeUp 0.7s ease both;
+}
+
+.fade-up-d1 { animation: fadeUp 0.7s 0.1s ease both; }
+.fade-up-d2 { animation: fadeUp 0.7s 0.2s ease both; }
+.fade-up-d3 { animation: fadeUp 0.7s 0.3s ease both; }
+.fade-up-d4 { animation: fadeUp 0.7s 0.4s ease both; }
+
+/* === CONTAINER === */
+.container-main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+}
